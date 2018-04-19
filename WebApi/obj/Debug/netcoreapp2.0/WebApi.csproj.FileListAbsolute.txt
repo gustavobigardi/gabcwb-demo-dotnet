@@ -1,0 +1,10 @@
+/Users/gbbigardi/Personal/gabcwb-demo-dotnet/WebApi/bin/Debug/netcoreapp2.0/WebApi.deps.json
+/Users/gbbigardi/Personal/gabcwb-demo-dotnet/WebApi/bin/Debug/netcoreapp2.0/WebApi.runtimeconfig.json
+/Users/gbbigardi/Personal/gabcwb-demo-dotnet/WebApi/bin/Debug/netcoreapp2.0/WebApi.runtimeconfig.dev.json
+/Users/gbbigardi/Personal/gabcwb-demo-dotnet/WebApi/bin/Debug/netcoreapp2.0/WebApi.dll
+/Users/gbbigardi/Personal/gabcwb-demo-dotnet/WebApi/bin/Debug/netcoreapp2.0/WebApi.pdb
+/Users/gbbigardi/Personal/gabcwb-demo-dotnet/WebApi/obj/Debug/netcoreapp2.0/WebApi.csproj.CoreCompileInputs.cache
+/Users/gbbigardi/Personal/gabcwb-demo-dotnet/WebApi/obj/Debug/netcoreapp2.0/WebApi.AssemblyInfoInputs.cache
+/Users/gbbigardi/Personal/gabcwb-demo-dotnet/WebApi/obj/Debug/netcoreapp2.0/WebApi.AssemblyInfo.cs
+/Users/gbbigardi/Personal/gabcwb-demo-dotnet/WebApi/obj/Debug/netcoreapp2.0/WebApi.dll
+/Users/gbbigardi/Personal/gabcwb-demo-dotnet/WebApi/obj/Debug/netcoreapp2.0/WebApi.pdb

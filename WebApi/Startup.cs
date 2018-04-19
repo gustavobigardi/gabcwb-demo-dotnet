@@ -8,6 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using WebApi.Repositories;
+using WebApi.Services;
 
 namespace WebApi
 {
@@ -26,6 +28,8 @@ namespace WebApi
             services.AddMvc();
             // Ativando o Application Insights
             services.AddApplicationInsightsTelemetry(Configuration);
+            services.AddTransient<NcmRepository>();
+            services.AddTransient<NcmService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

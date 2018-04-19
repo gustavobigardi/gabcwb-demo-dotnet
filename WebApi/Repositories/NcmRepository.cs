@@ -3,27 +3,40 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using Dapper;
+using Microsoft.Extensions.Configuration;
 using WebApi.Models;
 
 namespace WebApi.Repositories
 {
     public class NcmRepository
     {
-        private readonly SqlConnection _connection;
+        private readonly IConfiguration _config;
 
-        public NcmRepository(SqlConnection connection)
+        public NcmRepository(IConfiguration config)
         {
-            _connection = connection;
+            _config = config;
         }
 
         public async Task<List<Ncm>> List()
         {
-            return (await _connection.QueryAsync<Ncm>("SELECT * FROM Ncm")).ToList();
+            using (SqlConnection connection = new SqlConnection(_config.GetConnectionString("TestContext")))
+            {
+                connection.Open();
+                var result = (await connection.QueryAsync<Ncm>("SELECT * FROM Ncm")).ToList();
+                connection.Close();
+                return result;
+            }
         }
 
         public async Task<Ncm> GetByFullCode(string code)
         {
-            return (await _connection.QuerySingleAsync<Ncm>("SELECT * FROM Ncm WHERE SubItem = @Code", new { Code = code }));
+            using (SqlConnection connection = new SqlConnection(_config.GetConnectionString("TestContext")))
+            {
+                connection.Open();
+                var result = (await connection.QuerySingleAsync<Ncm>("SELECT * FROM Ncm WHERE Sub_Item = @Code", new { Code = code }));
+                connection.Close();
+                return result;
+            }
         }
     }
 }
