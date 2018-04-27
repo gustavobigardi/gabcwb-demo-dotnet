@@ -5,6 +5,7 @@ Esta é uma demo que utilizei na palestra **Monitorando APIs com Application Ins
 Para execução, é necessário um servidor SQL Server, com a seguinte tabela, e inserir alguns dados de exemplo.
 
 **NCM**
+
 Campo | Tipo | Tamanho | Extras
 ----- | ---- | ------- | ------
 Id | Integer | - | Identity(1,1) PK
