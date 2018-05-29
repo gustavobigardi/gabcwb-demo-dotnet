@@ -1,28 +1,24 @@
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using Dapper;
-using Microsoft.Extensions.Configuration;
+using Microsoft.Data.Sqlite;
 using WebApi.Models;
 
 namespace WebApi.Repositories
 {
     public class NcmRepository
     {
-        private readonly IConfiguration _config;
-
-        public NcmRepository(IConfiguration config)
-        {
-            _config = config;
-        }
+        private string _file = "DataSource=" + System.Environment.CurrentDirectory + "/database.sqlite";
 
         public async Task<List<Ncm>> List()
         {
-            using (SqlConnection connection = new SqlConnection(_config.GetConnectionString("TestContext")))
+            using (SqliteConnection connection = new SqliteConnection(_file))
             {
                 connection.Open();
-                var result = (await connection.QueryAsync<Ncm>("SELECT * FROM Ncm")).ToList();
+                var result = (await connection.QueryAsync<Ncm>("SELECT * FROM ncm")).ToList();
                 connection.Close();
                 return result;
             }
@@ -30,12 +26,21 @@ namespace WebApi.Repositories
 
         public async Task<Ncm> GetByFullCode(string code)
         {
-            using (SqlConnection connection = new SqlConnection(_config.GetConnectionString("TestContext")))
+            Console.WriteLine(_file);
+
+            using (SqliteConnection connection = new SqliteConnection(_file))
             {
-                connection.Open();
-                var result = (await connection.QuerySingleAsync<Ncm>("SELECT * FROM Ncm WHERE Sub_Item = @Code", new { Code = code }));
-                connection.Close();
-                return result;
+                try 
+                {
+                    connection.Open();
+                    var result = (await connection.QuerySingleAsync<Ncm>("SELECT * FROM ncm WHERE Code = @Code", new { Code = code }));
+                    connection.Close();
+                    return result;
+                }
+                catch (InvalidOperationException) {
+                    return null;
+                }
+                
             }
         }
     }
