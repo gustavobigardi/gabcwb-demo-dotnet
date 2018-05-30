@@ -1,0 +1,5 @@
+/Users/gbbigardi/Personal/gabcwb-demo-dotnet/WebApi
+--output-path=obj/Debug/netcoreapp2.0/
+--application-name=WebApi
+--content-root=/Users/gbbigardi/Personal/gabcwb-demo-dotnet/WebApi
+--file=
