@@ -11,7 +11,7 @@ namespace WebApi.Repositories
 {
     public class NcmRepository
     {
-        private string _file = "DataSource=" + System.Environment.CurrentDirectory + "/database.sqlite";
+        private string _file = "DataSource=" + System.Environment.CurrentDirectory + "\\database.sqlite";
 
         public async Task<List<Ncm>> List()
         {
